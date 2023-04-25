@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JSX trong ReactJs là gì? Chỉ 5 phút hiểu nhanh về JSX</title>
+<meta name="description" content="JSX trong ReactJs cho phép lập trình viên viết các phần tử HTML bằng JavaScript và đặt chúng trong DOM mà không cần bất kỳ phương thức nào">
+<link rel="canonical" href="https://t3h.com.vn/tin-tuc/jsx-trong-reactjs"/>
+<meta property="og:description" content="JSX trong ReactJs cho phép lập trình viên viết các phần tử HTML bằng JavaScript và đặt chúng trong DOM mà không cần bất kỳ phương thức nào" />
+<meta property="og:title" content="JSX trong ReactJs là gì? Chỉ 5 phút hiểu nhanh về JSX" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://t3h.com.vn/tin-tuc/jsx-trong-reactjs" />
+<meta property="og:image" content="https://t3h.com.vn/photos/1/Anh bai viet/jsx-react-js-co-ban-phan-.jpg" />
+
+<meta name="twitter:title" content="JSX trong ReactJs là gì? Chỉ 5 phút hiểu nhanh về JSX" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage"}</script>
+    <meta property="fb:app_id" content="2126810407449213" />
+    <meta property="fb:app_id" content="&lt;script&gt;&lt;/script&gt;" />
+    <script></script>
+    <meta name="google-site-verification" content="5sjAVNnhRcL9pqWUOaFRkyFS3UNOgREdh1R389aKajs" />
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-K3RDHBR');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    
+      <link href="https://t3h.com.vn/js/prism/prism.css" rel="stylesheet" />
+      <link rel="stylesheet" type="text/css" href="https://wowjs.uk/css/libs/animate.css">
+        <link rel="stylesheet" href="https://t3h.com.vn/client/plugins/owlcarousel2/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://t3h.com.vn/client/plugins/owlcarousel2/assets/owl.theme.default.min.css" />
+    <style>
+        h1.title {
+            font-size: 22px;
+            text-transform: uppercase;
+        }
+
+        .content{
+            font-size:14px
+        }
+        .content p{
+            font-size:15px
+        }
+        .content h1 {
+            font-size: 22px;
+        }
+        .content h2 {
+            font-size: 20px;
+        }
+
+        .content h3 {
+            font-size: 18px;
+        }
+        .content h4 {
+            font-size: 16px;
+        }
+
+        .content h5 {
+            font-size: 14px;
+        }
+
+        .content h6 {
+            font-size: 12px;
+        }
+        .news-latest a p {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 10px;
+            /* text-transform: uppercase; */
+            margin-top: 7px;
+        }
+
+        .news-latest a h5 {
+            font-size: 14px;
+            /* display: -webkit-box; */
+            /* -webkit-line-clamp: 1; */
+            /* -webkit-box-orient: vertical; */
+            /* overflow: hidden; */
+            /* text-overflow: ellipsis; */
+            /* font-size: 14px; */
+            /* text-transform: uppercase; */
+            /* margin-top: 7px; */
+        }
+        .mce-toc {
+            background: #ffe3d1;
+            color: #194f8f;
+            padding: 10px;
+        }
+
+        .mce-toc a {
+            color: #194f8f;
+        }
+
+    </style>
+    <link rel="stylesheet" href="https://t3h.com.vn/client/css/main.css?v=1.2.3" />
+    <style>
+        a.gotop {
+            width: 40px;
+            height: 40px;
+            background: #255a95;
+            position: fixed;
+            color: #f47526;
+            left: 10px;
+            bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.7;
+            transition: all ease 1s;
+            z-index: 99999999999999999;
+        }
+
+        a.gotop:hover {
+            opacity: 1;
+        }
+
+        a.hotline {
+            bottom: 96px;
+            position: fixed;
+            right: 21px;
+            /* border: 30px; */
+            font-size: 18px;
+            font-weight: bold;
+            width: 60px;
+            height: 60px;
+            background: #2ecc71;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 1.5em;
+            z-index: 99999999999999999;
+        }
+
+        .pagination a.page-link {
+            background: none;
+        }
+
+        .pagination .page-link {
+            background: none!important;
+        }
+        .nav-item{
+            transition: all ease 0.5s;
+        }
+        .sticky {
+            z-index: 9999999999999999;
+            position: fixed;
+            width: 100%;
+            background: #fff;
+        }
+        .sticky .nav-item {
+            padding: 5px 0px!important;
+        }
+        #main_nav{
+            box-shadow: 0 3px 5px 0 #0000005e;
+        }
+        .navbar-toggler {
+            margin-right: 13px;
+        }
+        .zalo_phone {
+            position: fixed;
+            bottom: 115px;
+            left: 10px;
+            z-index: 999999;
+            background: #4268FF;
+            padding: 7px 18px 8px;
+            color: #fff;
+            border-radius: 43px;
+        }
+        .zalo_phone a, .phone a {
+            color: #fff;
+        }
+        .phone {
+            position: fixed;
+            bottom: 60px;
+            left: 10px;
+            z-index: 999999;
+            background: #e67833;
+            padding: 7px 18px 8px;
+            color: #fff;
+            border-radius: 43px;
+        }
+    </style>
+        <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=600487f6aca127001328f962&product=inline-share-buttons" async="async"></script>
+</head>
+
+<body>
+  <!-- Messenger Plugin chat Code -->
+  <div id="fb-root"></div>
+
+  <!-- Your Plugin chat code -->
+  <div id="fb-customer-chat" class="fb-customerchat">
+  </div>
+
+  <script>
+    var chatbox = document.getElementById('fb-customer-chat');
+    chatbox.setAttribute("page_id", "267062930109785");
+    chatbox.setAttribute("attribution", "biz_inbox");
+  </script>
+
+  <!-- Your SDK code -->
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        xfbml            : true,
+        version          : 'v14.0'
+      });
+    };
+
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "LocalBusiness",
+              "name": "Viện Công nghệ thông tin T3H",
+              "image": "https://t3h.com.vn/photos/1/Asset%204.png",
+              "@id": "https://t3h.com.vn/",
+              "url": "https://t3h.com.vn/",
+              "description":"Viện Công nghệ thông tin T3H là đơn vị hàng đầu trong lĩnh vực đào tạo lập trình viên. Bao gồm các khóa học lập trình website, lập trình ứng dụng mobile và kiểm thử phần mềm. Đầy đủ các ngôn ngữ lập trình như Java, Php, Python, C#, Javascript.",
+              "telephone": "0977565104",
+              "priceRange": "4000000",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "128A Hồ Tùng Mậu",
+                "addressLocality": "Cầu Giấy",
+                "addressRegion": "Hà Nội",
+                "postalCode": "100000",
+                "addressCountry": "Việt Nam"
+              },
+              "hasMap":"https://goo.gl/maps/btmsH85Y7uLNkbcFA",
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 21.0401853,
+                "longitude": 105.766135
+              },
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+                ],
+                "opens": "00:00",
+                "closes": "23:59"
+              },
+              "sameAs": [
+                "https://www.facebook.com/hanoi.t3h",
+                "https://www.youtube.com/channel/UClQmPng3tfu0D5mDDQvklDA",
+                "https://medium.com/@viencnttt3h",
+                "https://www.diigo.com/profile/viencnntt3h",
+                "https://www.pinterest.com/viencnttT3h/",
+                "https://t3h.tumblr.com/"
+              ],
+              "contactPoint": {
+                "@type": "contactPoint",
+                "email": "hanoi@t3h.edu.vn",
+                "telephone": "+84977565104",
+                "areaServed": "VN"
+                }
+            },
+            {
+              "@type": "Person",
+              "alternateName": [
+                "Lưu Công Định",
+                "Luu Cong Dinh"
+              ],
+              "sameAs": [
+                "https://www.facebook.com/congdinh.luu.37"
+              ],
+              "familyName": "Lưu",
+              "additionalName": "Công",
+              "givenName": "Định",
+              "name": "Lưu Công Định",
+              "description": "Tôi là Lưu Công Định, hiện đang là CEO, Co-Founder của Viện Công nghệ thông tin T3H. Tôi mong muốn mang đến môi trường đào tạo lập trình viên chuyên nghiệp, chất lượng cho các bạn trẻ đam mê công nghệ thông tin",
+              "jobTitle": "Co-Founder & CEO",
+              "gender": "https://schema.org/Male",
+              "email": "dinh.lc@t3h.edu.vn",
+              "image": "https://scontent.fhan5-11.fna.fbcdn.net/v/t31.18172-8/25440126_867326633435277_8021797300281133055_o.jpg?_nc_cat=111&ccb=1-5&_nc_sid=cdbe9c&_nc_ohc=T9aPKLLjQTwAX-ipspZ&_nc_ht=scontent.fhan5-11.fna&oh=7ff1644c431350b39213207c5b248e43&oe=619601DA"
+            }
+          ]
+        }
+
+    </script>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "Viện Công nghệ thông tin T3H",
+          "image": "https://t3h.com.vn/photos/1/Asset%204.png",
+          "@id": "https://t3h.com.vn/",
+          "url": "https://t3h.com.vn/",
+          "description":"Viện Công nghệ thông tin T3H là đơn vị hàng đầu trong lĩnh vực đào tạo lập trình viên. Bao gồm các khóa học lập trình website, lập trình ứng dụng mobile và kiểm thử phần mềm. Đầy đủ các ngôn ngữ lập trình như Java, Php, Python, C#, Javascript.",
+          "telephone": "0977565104",
+          "priceRange": "4000000",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "128A Hồ Tùng Mậu",
+            "addressLocality": "Hà Nội",
+            "postalCode": "100000",
+            "addressCountry": "VN"
+          },
+          "hasMap":"https://goo.gl/maps/btmsH85Y7uLNkbcFA",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 21.0401853,
+            "longitude": 105.766135
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "00:00",
+            "closes": "23:59"
+          },
+          "sameAs": [
+            "https://www.facebook.com/hanoi.t3h",
+            "https://www.youtube.com/channel/UClQmPng3tfu0D5mDDQvklDA",
+            "https://t3h.com.vn/"
+          ]
+        }
+        </script>
+    <div id="mySidenav" class="sidenav">
+        <div class="sidenav-content">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a class="menu-item" href="https://t3h.com.vn">Giới thiệu</a>
+            <a class="menu-item d-flex justify-content-between" data-toggle="collapse" href="#courseCollapse" role="button" aria-expanded="false" aria-controls="courseCollapse">Khóa học  <i class="fa fa-plus"></i></a>
+            <div class="collapse" id="courseCollapse">
+                                                                                        <a class="subitem menu-item" href="https://t3h.com.vn/khoa-hoc/lap-trinh-frontend-reactjs">Frontend ReactJS</a>
+                                                                                                                                    <a class="subitem menu-item" href="https://t3h.com.vn/khoa-hoc/lap-trinh-web-php-fullstack">Web PHP Fullstack</a>
+                                                    <a class="subitem menu-item" href="https://t3h.com.vn/khoa-hoc/lap-trinh-java-web-fullstack">Java Web Fullstack</a>
+                                                    <a class="subitem menu-item" href="https://t3h.com.vn/khoa-hoc/lap-trinh-python-django">Python Django</a>
+                                                    <a class="subitem menu-item" href="https://t3h.com.vn/khoa-hoc/lap-trinh-asp-net-mvc">ASP .Net MVC</a>
+                                                                                                                                    <a class="subitem menu-item" href="https://t3h.com.vn/khoa-hoc/lap-trinh-android">Java Android</a>
+                                                                                                                                    <a class="subitem menu-item" href="https://t3h.com.vn/khoa-hoc/kiem-thu-phan-mem-tester">Kiểm thử phần mềm</a>
+                                                                                                                                                        </div>
+            <a href="https://t3h.com.vn/lich-khai-giang" class="menu-item">Lịch khai giảng</a>
+            <a href="https://t3h.com.vn/blog" class="menu-item">Tin tức</a>
+            <a href="https://t3h.com.vn/san-pham-sinh-vien" class="menu-item">Sản phẩm học viên</a>
+        </div>
+
+    </div>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K3RDHBR"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="main"  style="max-width: 100%;overflow: hidden;">
+        <header id="header">
+    <nav class="navbar navbar-expand-lg navbar-light p-0 main-menu" id="main_nav">
+        <div class="container">
+            <a class="navbar-brand d-flex" href="https://t3h.com.vn">
+                <img src="https://t3h.com.vn/photos/1/Asset 4.png" style="height: 54px;margin-right: 11px;" width="70px" alt="">
+                <div class="text-left">
+                    <p class="font-weight-bold text-uppercase text-primary mb-0 text-logo">Viện công nghệ thông tin T3H</p>
+                    <p class="mb-0 small text-orange ff-lob sub-text-logo">Đào tạo chuyên sâu - Trải nghiệm thực tế</p>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item py-3 ">
+                        <a class="nav-link text-uppercase text-primary font-weight-bold" href="https://t3h.com.vn/gioi-thieu">Giới thiệu</a>
+                    </li>
+                    <li class="nav-item py-3 dropdown has-megamenu">
+                        <a class="nav-link text-uppercase text-primary font-weight-bold dropdown-toggle" href="#" data-toggle="dropdown"> Khóa học </a>
+                        <div class="dropdown-menu megamenu" role="menu" style="z-index: 99999999999999999999999999999;">
+                                    <div class="row">
+                                                                                    <div class="col-md-3">
+                                                <div class="col-megamenu">
+                                                    <div class="title h6">Frontend</div>
+                                                                                                            <ul class="list-unstyled">
+                                                                                                                            <li><a href="https://t3h.com.vn/khoa-hoc/lap-trinh-frontend-reactjs">Frontend ReactJS</a></li>
+                                                                                                                    </ul>
+                                                                                                    </div>  <!-- col-megamenu.// -->
+                                            </div><!-- end col-3 -->
+                                                                                    <div class="col-md-3">
+                                                <div class="col-megamenu">
+                                                    <div class="title h6">Fullstack</div>
+                                                                                                            <ul class="list-unstyled">
+                                                                                                                            <li><a href="https://t3h.com.vn/khoa-hoc/lap-trinh-web-php-fullstack">Web PHP Fullstack</a></li>
+                                                                                                                            <li><a href="https://t3h.com.vn/khoa-hoc/lap-trinh-java-web-fullstack">Java Web Fullstack</a></li>
+                                                                                                                            <li><a href="https://t3h.com.vn/khoa-hoc/lap-trinh-python-django">Python Django</a></li>
+                                                                                                                            <li><a href="https://t3h.com.vn/khoa-hoc/lap-trinh-asp-net-mvc">ASP .Net MVC</a></li>
+                                                                                                                    </ul>
+                                                                                                    </div>  <!-- col-megamenu.// -->
+                                            </div><!-- end col-3 -->
+                                                                                    <div class="col-md-3">
+                                                <div class="col-megamenu">
+                                                    <div class="title h6">Mobile</div>
+                                                                                                            <ul class="list-unstyled">
+                                                                                                                            <li><a href="https://t3h.com.vn/khoa-hoc/lap-trinh-android">Java Android</a></li>
+                                                                                                                    </ul>
+                                                                                                    </div>  <!-- col-megamenu.// -->
+                                            </div><!-- end col-3 -->
+                                                                                    <div class="col-md-3">
+                                                <div class="col-megamenu">
+                                                    <div class="title h6">Tester</div>
+                                                                                                            <ul class="list-unstyled">
+                                                                                                                            <li><a href="https://t3h.com.vn/khoa-hoc/kiem-thu-phan-mem-tester">Kiểm thử phần mềm</a></li>
+                                                                                                                    </ul>
+                                                                                                    </div>  <!-- col-megamenu.// -->
+                                            </div><!-- end col-3 -->
+                                                                                    <div class="col-md-3">
+                                                <div class="col-megamenu">
+                                                    <div class="title h6">Online</div>
+                                                                                                            <ul class="list-unstyled">
+                                                                                                                    </ul>
+                                                                                                    </div>  <!-- col-megamenu.// -->
+                                            </div><!-- end col-3 -->
+                                                                            </div><!-- end row -->
+                        </div> <!-- dropdown-mega-menu.// -->
+                    </li>
+                    <li class="nav-item py-3 ">
+                        <a href="https://t3h.com.vn/lich-khai-giang" class="nav-link text-uppercase text-primary font-weight-bold">Lịch khai giảng</a>
+                    </li>
+                    <li class="nav-item py-3 ">
+                        <a href="https://t3h.com.vn/blog" class="nav-link text-uppercase text-primary font-weight-bold">Tin tức</a>
+                    </li>
+                    <li class="nav-item py-3">
+                        <a href="https://t3h.com.vn/san-pham-sinh-vien" class="nav-link text-uppercase text-primary font-weight-bold">Sản phẩm học viên</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+            <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="t3h-content">
+                    <section id="main-content" class="left-content">
+                        <ul class="breadcrumb">
+                            <li>
+                                <a href="https://t3h.com.vn/blog">Blog</a>
+                            </li>
+                                                            <li class="active">
+                                    <a href="#">Tin tức</a>
+                                </li>
+                                                    </ul>
+                        <div class="wrapper">
+                            <h1 class="title mb-0">
+                                <a href="#">JSX trong ReactJs là gì? Chỉ 5 phút hiểu nhanh về JSX</a>
+                            </h1>
+                            <div class="reaction d-flex">
+                                <p class="created_at pr-4"><i class="far fa-calendar-alt text-warning"></i> 08/07/2021 02:14</p>
+                                
+                            </div>
+                            <div>
+                                <p class="font-weight-bold">JSX là viết tắt của JavaScript XML, một cú pháp mở rộng cho phép lập trình viên viết HTML trong React một cách dễ dàng. React sử dụng JSX để tạo khuôn mẫu thay vì JavaScript thông thường. Bạn không bắt buộc phải sử dụng JSX nhưng phần mở rộng này sẽ giúp bạn viết ứng dụng dễ dàng hơn. Bài viết giới đây sẽ giới thiệu về JSX trong ReactJs cùng một số ưu điểm của phần mở rộng này.</p>
+                            </div>
+                            <div class="content">
+                                <!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div class="mce-toc text-bold" contenteditable="false">
+<div contenteditable="true">Mục lục</div>
+<ul>
+<li><a href="#mot-so-uu-diem-cua-jsx-trong-reactjs">Một số ưu điểm của JSX trong ReactJs</a></li>
+<li><a href="#su-dung-jsx-trong-reactjs">Sử dụng JSX trong ReactJs</a></li>
+<li><a href="#bieu-thuc-trong-jsx">Biểu thức trong JSX</a></li>
+<li><a href="#chen-khoi-html-lon">Ch&egrave;n khối HTML lớn</a></li>
+<li><a href="#thuoc-tinh-jsx-trong-reactjs">Thuộc t&iacute;nh JSX trong ReactJs</a></li>
+<li><a href="#tao-kieu-jsx-trong-reactjs">Tạo kiểu JSX trong ReactJs</a></li>
+<li><a href="#quy-uoc-dat-ten-jsx-trong-reactjs">Quy ước đặt t&ecirc;n JSX trong ReactJS</a></li>
+</ul>
+</div>
+<h2 style="text-align: justify;"><strong><img src="data:image/jpeg;base64,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" /></strong></h2>
+<h2 id="mot-so-uu-diem-cua-jsx-trong-reactjs" style="text-align: justify;"><strong>Một số ưu điểm của JSX trong ReactJs</strong></h2>
+<ul style="text-align: justify;">
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Mang lại tốc độ nhanh hơn v&igrave; n&oacute; thực hiện tối ưu h&oacute;a khi bi&ecirc;n dịch m&atilde; sang JavaScript.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Hầu hết c&aacute;c lỗi đều c&oacute; thể được ph&aacute;t hiện ngay trong qu&aacute; tr&igrave;nh bi&ecirc;n dịch m&atilde;.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Nếu bạn quen thuộc với HTML, JSX sẽ gi&uacute;p bạn viết c&aacute;c mẫu (templates) nhanh v&agrave; dễ d&agrave;ng hơn.</span></li>
+</ul>
+<h2 id="su-dung-jsx-trong-reactjs" style="text-align: justify;"><strong>Sử dụng JSX trong ReactJs</strong></h2>
+<p style="text-align: justify;"><span style="font-weight: 400;">JSX cho ph&eacute;p lập tr&igrave;nh vi&ecirc;n viết c&aacute;c phần tử HTML bằng JavaScript v&agrave; đặt ch&uacute;ng trong DOM m&agrave; kh&ocirc;ng cần bất kỳ phương thức n&agrave;o </span><span style="font-weight: 400;">createElement() </span><span style="font-weight: 400;">&nbsp;</span><span style="font-weight: 400;">v&agrave;/hoặc</span> <span style="font-weight: 400;">appendChild().&nbsp;</span></p>
+<p style="text-align: justify;"><span style="font-weight: 400;">V&iacute; dụ :</span></p>
+<p style="text-align: justify;"><span style="font-weight: 400;">C&oacute; JSX, đoạn code sẽ như sau:</span></p>
+<pre class="language-markup"><code>const myelement = &lt;h1&gt;I Love JSX!&lt;/h1&gt;;
+
+ReactDOM.render(myelement, document.getElementById('root'));</code></pre>
+<p style="text-align: justify;"><span style="font-weight: 400;">Kh&ocirc;ng c&oacute; JSX, đoạn code sẽ như sau:</span></p>
+<pre class="language-markup"><code>const myelement = React.createElement('h1', {}, 'I do not use JSX!');
+
+ReactDOM.render(myelement, document.getElementById('root'));</code></pre>
+<p style="text-align: justify;"><span style="font-weight: 400;">C&oacute; thể thấy, trong v&iacute; dụ đầu ti&ecirc;n, JSX cho ph&eacute;p ch&uacute;ng ta viết HTML trực tiếp trong JavaScript.</span></p>
+<p style="text-align: justify;"><span style="font-weight: 400;">JSX l&agrave; một phần mở rộng của ng&ocirc;n ngữ JavaScript dựa tr&ecirc;n ES6 v&agrave; được dịch sang JavaScript th&ocirc;ng thường trong thời gian chạy m&atilde;.</span></p>
+<h2 id="bieu-thuc-trong-jsx" style="text-align: justify;"><strong>Biểu thức trong JSX</strong></h2>
+<p style="text-align: justify;"><span style="font-weight: 400;">Với JSX, bạn c&oacute; thể viết c&aacute;c biểu thức b&ecirc;n trong dấu ngoặc nhọn {}. Biểu thức c&oacute; thể l&agrave; một biến hoặc thuộc t&iacute;nh hoặc bất kỳ biểu thức JavaScript hợp lệ n&agrave;o kh&aacute;c. JSX sẽ thực thi biểu thức v&agrave; trả về kết quả.</span></p>
+<p style="text-align: justify;"><span style="font-weight: 400;">V&iacute; dụ</span></p>
+<p style="text-align: justify;"><span style="font-weight: 400;">Thực hiện biểu thức 5+5:</span></p>
+<pre class="language-markup"><code>const myelement = &lt;h1&gt;React is {5 + 5} times better with JSX&lt;/h1&gt;;</code></pre>
+<p style="text-align: center;"><span style="font-weight: 400;">&gt;&gt;&gt;Đọc th&ecirc;m:</span> <a href="/tin-tuc/framework-reactjs"><strong>Framework ReactJs</strong> </a><span style="font-weight: 400;">- Top 10 Framework ReactJs tốt nhất cho LTV</span></p>
+<h2 id="chen-khoi-html-lon" style="text-align: justify;"><strong>Ch&egrave;n khối HTML lớn</strong></h2>
+<p style="text-align: justify;"><span style="font-weight: 400;">Để viết HTML tr&ecirc;n nhiều d&ograve;ng, bạn c&oacute; thể đặt HTML b&ecirc;n trong dấu ngoặc đơn như sau:</span></p>
+<p style="text-align: justify;"><span style="font-weight: 400;">V&iacute; dụ:</span></p>
+<p style="text-align: justify;"><span style="font-weight: 400;">Tạo một danh s&aacute;ch với ba mục sau</span></p>
+<pre class="language-markup"><code>const myelement = (
+
+  &lt;ul&gt;
+
+    &lt;li&gt;Apples&lt;/li&gt;
+
+    &lt;li&gt;Bananas&lt;/li&gt;
+
+    &lt;li&gt;Cherries&lt;/li&gt;
+
+  &lt;/ul&gt;
+
+);</code></pre>
+<p style="text-align: center;"><span style="font-weight: 400;">&gt;&gt;&gt; Tham khảo:</span><a href="/tin-tuc/vong-doi-thanh-phan-trong-reactjs"> <strong>Kh&oacute;a học lập tr&igrave;nh ReactJS</strong></a></p>
+<h2 id="thuoc-tinh-jsx-trong-reactjs" style="text-align: justify;"><strong>Thuộc t&iacute;nh JSX trong ReactJs</strong></h2>
+<p style="text-align: justify;"><span style="font-weight: 400;">Bạn c&oacute; thể sử dụng c&aacute;c thuộc t&iacute;nh t&ugrave;y chỉnh của ri&ecirc;ng m&igrave;nh ngo&agrave;i c&aacute;c thuộc t&iacute;nh HTML th&ocirc;ng thường. Khi muốn th&ecirc;m thuộc t&iacute;nh t&ugrave;y chỉnh của JSX trong ReactJS, bạn cần sử dụng tiền tố data-, Trong v&iacute; dụ sau, data-myattribute đ&atilde; được th&ecirc;m l&agrave;m thuộc t&iacute;nh của phần tử p.</span></p>
+<pre class="language-markup"><code>import React from 'react';
+
+class App extends React.Component {
+
+   render() {
+
+      return (
+
+         &lt;div&gt;
+
+            &lt;h1&gt;Header&lt;/h1&gt;
+
+            &lt;h2&gt;Content&lt;/h2&gt;
+
+            &lt;p data-myattribute = "somevalue"&gt;This is the content!!!&lt;/p&gt;
+
+         &lt;/div&gt;
+
+      );
+
+   }
+
+}
+
+export default App;</code></pre>
+<p style="text-align: center;"><span style="font-weight: 400;">&gt;&gt;&gt; Đọc th&ecirc;m: </span><a href="/tin-tuc/vong-doi-thanh-phan-trong-reactjs"><strong>V&ograve;ng đời th&agrave;nh phần trong ReactJS</strong></a><span style="font-weight: 400;"> - T&igrave;m hiểu v&ograve;ng đời của Component trong ReactJS</span></p>
+<h2 id="tao-kieu-jsx-trong-reactjs" style="text-align: justify;"><strong>Tạo kiểu JSX trong ReactJs</strong></h2>
+<p style="text-align: justify;"><span style="font-weight: 400;">React khuy&ecirc;n c&aacute;c lập tr&igrave;nh vi&ecirc;n n&ecirc;n sử dụng c&aacute;c kiểu nội tuyến (inline styles). Khi muốn thiết lập c&aacute;c kiểu nội tuyến, bạn cần phải sử dụng c&uacute; ph&aacute;p camelcase. React sẽ tự động th&ecirc;m px sau gi&aacute; trị số tr&ecirc;n c&aacute;c phần tử cụ thể. V&iacute; dụ sau đ&acirc;y sẽ cho bạn thấy c&aacute;ch để th&ecirc;m nội tuyến myStyle v&agrave;o phần tử h1.</span></p>
+<pre class="language-markup"><code>import React from 'react';
+
+class App extends React.Component {
+
+   render() {
+
+      var myStyle = {
+
+         fontSize: 100,
+
+         color: '#FF0000'
+
+      }
+
+      return (
+
+         &lt;div&gt;
+
+            &lt;h1 style = {myStyle}&gt;Header&lt;/h1&gt;
+
+         &lt;/div&gt;
+
+      );
+
+   }
+
+}
+
+export default App;</code></pre>
+<h2 id="quy-uoc-dat-ten-jsx-trong-reactjs" style="text-align: justify;"><strong>Quy ước đặt t&ecirc;n JSX trong ReactJS</strong></h2>
+<p style="text-align: justify;"><span style="font-weight: 400;">C&aacute;c thẻ HTML lu&ocirc;n sử dụng t&ecirc;n thẻ viết thường, trong khi c&aacute;c th&agrave;nh phần React bắt đầu bằng chữ hoa. Lưu &yacute;: Bạn n&ecirc;n sử dụng className v&agrave; htmlFor l&agrave;m t&ecirc;n thuộc t&iacute;nh XML thay v&igrave; class v&agrave; for.</span></p>
+<p style="text-align: justify;"><span style="font-weight: 400;">Tr&ecirc;n trang web ch&iacute;nh thức của React, điều n&agrave;y được giải th&iacute;ch l&agrave; do JSX l&agrave; JavaScript n&ecirc;n c&aacute;c định danh như class v&agrave; for kh&ocirc;ng được khuyến kh&iacute;ch l&agrave;m t&ecirc;n thuộc t&iacute;nh XML. Thay v&agrave;o đ&oacute;, c&aacute;c th&agrave;nh phần React DOM y&ecirc;u cầu c&aacute;c t&ecirc;n thuộc t&iacute;nh DOM tương ứng như className v&agrave; htmlFor.</span></p>
+<p style="text-align: justify;"><span style="font-weight: 400;">Kết luận: JSX trong ReactJS l&agrave; một c&uacute; ph&aacute;p mở rộng cho ph&eacute;p người d&ugrave;ng lập tr&igrave;nh ứng dụng dễ d&agrave;ng hơn, bạn c&oacute; thể tận dụng những ưu điểm vượt trội của JSX để&nbsp; gi&uacute;p việc lập tr&igrave;nh nhanh ch&oacute;ng v&agrave; hiệu quả hơn.</span></p>
+<p style="text-align: center;"><span style="font-weight: 400;">&gt;&gt;&gt; Đọc th&ecirc;m th&ocirc;ng tin về ReactJS tại </span><span style="font-weight: 400;">&nbsp;</span><a href="/"><strong>Viện c&ocirc;ng nghệ th&ocirc;ng tin T3H</strong></a><strong>&nbsp;</strong></p>
+</body>
+</html>
+                            </div>
+                            <div class="mt-4">
+                                <div class="sharethis-inline-share-buttons"></div>
+                            </div>
+                        </div>
+                        <div class="fb-comments" data-href="https://t3h.com.vn/tin-tuc/jsx-trong-reactjs" data-numposts="5" data-width="100%"></div>
+                        <div class="related-post">
+                            <div class="block-related">
+                                <div class="block-title mb-2 pt-4">
+                                    <h4 class="text-primary title">Tin tức cùng chủ đề</h4>
+                                </div>
+                            </div>
+                            <div class="posts owl-carousel">
+                                                                <div class="item pr-2">
+                                    <a href="https://t3h.com.vn/tin-tuc/tep-csv-trong-java">
+                                        <img src="https://t3h.com.vn/photos/1/Anh bai viet/java-read-generate-csv-file-opencsv.jpg" class="rounded" alt="">
+                                        <div class="title h6 mt-1">Tệp CSV trong Java - Cách đọc tệp CSV trong Java</div>
+                                    </a>
+                                </div>
+                                                                <div class="item pr-2">
+                                    <a href="https://t3h.com.vn/tin-tuc/9-loi-javascript-pho-bien-cac-lap-trinh-vien-thuong-gap">
+                                        <img src="https://t3h.com.vn/photos/1/Anh bai viet/javascript-la-gi.jpg" class="rounded" alt="">
+                                        <div class="title h6 mt-1">9 lỗi JavaScript phổ biến các lập trình viên thường gặp</div>
+                                    </a>
+                                </div>
+                                                                <div class="item pr-2">
+                                    <a href="https://t3h.com.vn/tin-tuc/self-trong-python">
+                                        <img src="https://t3h.com.vn/photos/1/Anh bai viet/self-trong-python.jpg" class="rounded" alt="">
+                                        <div class="title h6 mt-1">Self trong Python - Bật mí lý do cần sử dụng self trong Python</div>
+                                    </a>
+                                </div>
+                                                                <div class="item pr-2">
+                                    <a href="https://t3h.com.vn/tin-tuc/python-dung-de-lam-gi">
+                                        <img src="https://t3h.com.vn/photos/1/anh san pham sinh vien/cach-su-dung-python.jpg" class="rounded" alt="">
+                                        <div class="title h6 mt-1">Giải đáp: Ngôn ngữ lập trình Python được dùng để làm gì?</div>
+                                    </a>
+                                </div>
+                                                                <div class="item pr-2">
+                                    <a href="https://t3h.com.vn/tin-tuc/vong-doi-kiem-thu-phan-mem-nhung-thong-tin-co-ban-tu-a-z">
+                                        <img src="https://t3h.com.vn/photos/1/Anh bai viet/Tester-là-gì-4.jpg" class="rounded" alt="">
+                                        <div class="title h6 mt-1">Vòng đời kiểm thử phần mềm - Những thông tin cơ bản từ A-Z</div>
+                                    </a>
+                                </div>
+                                                            </div>
+                        </div>
+                    </section>
+                    <aside id="sidebar-right" class="right-content">
+                        <div class="block-course">
+                            <div class="block-title mb-3 pt-4">
+                                <h4 class="text-primary title">Tin mới nhất</h4>
+                            </div>
+                            <div class="news-latest">
+                                <div class="list-group">
+                                                                          <a href="https://t3h.com.vn/tin-tuc/10-dieu-can-biet-ve-net-framework" class="">
+                                        <div class="d-flex">
+                                            <div class="avatar">
+                                                <img src="https://t3h.com.vn/photos/1/Anh bai viet/aspnetmvc.jpeg" style="width: 50px" alt="">
+                                            </div>
+                                            <div class="news-content">
+                                                <div class="d-flex w-100 justify-content-between">
+                                                  <div class="mb-1 txt-2-line h6" title="10 điều cần biết về .NET Framework">10 điều cần biết về .NET Framework</div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+
+                                      </a>
+                                                                          <a href="https://t3h.com.vn/tin-tuc/reactjs-redux-thu-vien-quan-ly-trang-thai-nang-cao" class="">
+                                        <div class="d-flex">
+                                            <div class="avatar">
+                                                <img src="https://t3h.com.vn/photos/1/Anh bai viet/Redux-là-gì-2.jpg" style="width: 50px" alt="">
+                                            </div>
+                                            <div class="news-content">
+                                                <div class="d-flex w-100 justify-content-between">
+                                                  <div class="mb-1 txt-2-line h6" title="ReactJS - Redux thư viên quản lý trạng thái nâng cao">ReactJS - Redux thư viên quản lý trạng thái nâng cao</div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+
+                                      </a>
+                                                                          <a href="https://t3h.com.vn/tin-tuc/api-la-gi-cac-thong-tin-tong-quan-ve-api" class="">
+                                        <div class="d-flex">
+                                            <div class="avatar">
+                                                <img src="https://t3h.com.vn/photos/1/Anh bai viet/APIs.png" style="width: 50px" alt="">
+                                            </div>
+                                            <div class="news-content">
+                                                <div class="d-flex w-100 justify-content-between">
+                                                  <div class="mb-1 txt-2-line h6" title="API là gì? Các thông tin tổng quan về API">API là gì? Các thông tin tổng quan về API</div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+
+                                      </a>
+                                                                          <a href="https://t3h.com.vn/tin-tuc/10-meo-va-thu-thuat-php-hang-dau-cho-nguoi-moi-bat-dau" class="">
+                                        <div class="d-flex">
+                                            <div class="avatar">
+                                                <img src="https://t3h.com.vn/photos/1/Anh bai viet/top-10-php-tricks-and-tips.jpg" style="width: 50px" alt="">
+                                            </div>
+                                            <div class="news-content">
+                                                <div class="d-flex w-100 justify-content-between">
+                                                  <div class="mb-1 txt-2-line h6" title="10 mẹo và thủ thuật PHP hàng đầu cho người mới bắt đầu">10 mẹo và thủ thuật PHP hàng đầu cho người mới bắt đầu</div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+
+                                      </a>
+                                                                          <a href="https://t3h.com.vn/tin-tuc/loi-ich-chua-biet-cua-unit-testing-trong-kiem-thu" class="">
+                                        <div class="d-flex">
+                                            <div class="avatar">
+                                                <img src="https://t3h.com.vn/photos/1/Anh bai viet/Tester-là-gì-4.jpg" style="width: 50px" alt="">
+                                            </div>
+                                            <div class="news-content">
+                                                <div class="d-flex w-100 justify-content-between">
+                                                  <div class="mb-1 txt-2-line h6" title="Lợi ích chưa biết của Unit Testing trong kiểm thử">Lợi ích chưa biết của Unit Testing trong kiểm thử</div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+
+                                      </a>
+                                                                    </div>
+                            </div>
+                            <div class="mb-4 d-none d-sm-block d-md-block d-lg-block d-xl-block">
+                                <img src="https://t3h.com.vn/banner.png" class="img-fluid">
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+        <footer id="footer">
+    <div class="zalo_phone">
+        <a href="https://zalo.me/0972056536" target="_blank" rel="noopener">Chat zalo</a>
+    </div>
+    <div class="phone">
+        <a href="tel:0972056536" target="_blank" rel="noopener">Gọi ngay: 0972056536</a>
+    </div>
+    <div class="wrapper py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="about d-flex">
+                        <img src="https://t3h.com.vn/photos/1/logo.png" style="height: 52px" width="70px" alt="">
+                        <div class="text-left ml-2">
+                            <div class="font-weight-bold text-uppercase mb-0">Viện công nghệ thông tin t3h</div>
+                            <p class="font-weight-bold mb-0 small text-orange ff-lob">Đào tạo chuyên sâu -
+                                Trải nghiệm thực tế
+                            </p>
+                        </div>
+                    </div>
+                    <div class="caption pt-3">
+                        <p>
+                            Tầng 05 - Nhà A - Trường Cán bộ quản lý văn hóa
+                            thể thao và du lịch
+                        </p>
+                        <p>
+                            128A - Hồ Tùng Mậu - Mai Dịch - Cầu Giấy - Hà Nội
+                        </p>
+                        <p>
+                            Hotline:  0977 565 104 (Mr Định) <br>
+                            0978 105 663 (Mrs Phượng)
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="d-flex flex-row">
+                        <div class="block-about">
+                            <div class="mb-3 text-uppercase footer_heading">Về T3h</div>
+                            <ul class="nav flex-column">
+                                <a href="https://t3h.com.vn" class="nav-link text-light">Trang chủ</a>
+                                <a href="https://t3h.com.vn/gioi-thieu" class="nav-link text-light">Giới thiệu</a>
+                                <a href="https://t3h.com.vn/san-pham-sinh-vien" class="nav-link text-light">Sản phẩm sinh viên</a>
+                                <a href="https://t3h.com.vn/blog" class="nav-link text-light">Tin tức & sự kiện</a>
+                                <a href="https://t3h.com.vn/chinh-sach-quyen-rieng-tu" class="nav-link text-light">Chính sách quyền riêng tư</a>
+                                <a href="https://t3h.com.vn/dieu-khoan" class="nav-link text-light">Điều khoản & điều kiện</a>
+                            </ul>
+                        </div>
+                        <div class="block-course">
+                            <div class="mb-3 text-uppercase footer_heading">Chương trình đào tạo</div>
+                            <div class="d-flex d-flex-row">
+                                
+                                    <ul class="nav flex-column">
+                                                                                    <a href="https://t3h.com.vn/khoa-hoc/lap-trinh-web-php-fullstack" class="nav-link text-light p-0">Web PHP Fullstack</a>
+                                                                                    <a href="https://t3h.com.vn/khoa-hoc/lap-trinh-java-web-fullstack" class="nav-link text-light p-0">Java Web Fullstack</a>
+                                                                                    <a href="https://t3h.com.vn/khoa-hoc/kiem-thu-phan-mem-tester" class="nav-link text-light p-0">Kiểm thử phần mềm</a>
+                                                                                    <a href="https://t3h.com.vn/khoa-hoc/lap-trinh-android" class="nav-link text-light p-0">Java Android</a>
+                                                                                    <a href="https://t3h.com.vn/khoa-hoc/lap-trinh-python-django" class="nav-link text-light p-0">Python Django</a>
+                                                                                    <a href="https://t3h.com.vn/khoa-hoc/lap-trinh-frontend-reactjs" class="nav-link text-light p-0">Frontend ReactJS</a>
+                                                                                    <a href="https://t3h.com.vn/khoa-hoc/lap-trinh-asp-net-mvc" class="nav-link text-light p-0">ASP .Net MVC</a>
+                                                                            </ul>
+                                
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="">
+                            <div class="fb-page" data-href="https://www.facebook.com/hanoi.t3h" data-tabs="" data-width=""
+                                data-height="" data-small-header="false" data-adapt-container-width="true"
+                                data-hide-cover="false" data-show-facepile="true">
+                                <blockquote cite="https://www.facebook.com/hanoi.t3h" class="fb-xfbml-parse-ignore"><a
+                                        href="https://www.facebook.com/hanoi.t3h">Hệ thống Đào tạo CNTT T3H</a></blockquote>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="copy-right text-center">
+        Copyright © 2020 t3h.edu.vn. All rights reserved.
+    </div>
+</footer>
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous"
+            src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0&appId=222228711691702&autoLogAppEvents=1"
+            nonce="QL0jGB7Y"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+            <script src="https://t3h.com.vn/client/plugins/owlcarousel2/owl.carousel.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.owl-carousel').owlCarousel({
+                stagePadding: 50,
+                items: 3,
+                nav: true,
+                loop: true,
+                autoplay: true,
+                autoPlay: 1000,
+                responsive: {
+                    0: {
+                      items: 1
+                    },
+                    600: {
+                      items: 1
+                    },
+                    1024: {
+                      items: 3
+                    },
+                }
+            });
+        });
+    </script>
+        <a href="#top" class="gotop"><i class="fas fa-arrow-up"></i></a>
+        
+    </div>
+    
+    <script src="https://wowjs.uk/dist/wow.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            new WOW().init();
+        });
+    </script>
+    <script>
+        $("a[href='#top']").click(function() {
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+            return false;
+        });
+    </script>
+    <script>
+        var isOpenNav = false;
+        function openNav() {
+            console.log('openNav')
+            isOpenNav = true;
+            $('.sidenav-content').addClass('show-sidenav-content');
+
+          document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+                    $('.sidenav-content').removeClass('show-sidenav-content');
+            console.log('closeNav')
+
+            isOpenNav = false;
+            document.getElementById("mySidenav").style.width = "0";
+        }
+        $(document).ready(function() {
+            $('#main').click(function(event) {
+                closeNav();
+            });
+            $(".navbar-toggler").click(function(event) {
+                event.stopPropagation();
+                if (!isOpenNav) {
+                    openNav();
+                } else {
+                    closeNav();
+                }
+
+            });
+
+            $("[data-toggle='collapse']").click(function(event) {
+                let className = $(this).find('i').attr('class');
+                if (className == 'fa fa-plus') {
+                    $(this).find('i').attr('class', 'fa fa-minus')
+                } else {
+                    $(this).find('i').attr('class', 'fa fa-plus')
+                }
+            });
+        });
+
+
+    </script>
+    <script src="https://t3h.com.vn/js/prism/prism.js"></script>
+    <!--Start of Tawk.to Script-->
+    <script>
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/5efeee259e5f69442291c9a6/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+
+    window.onscroll = function() {myFunction()};
+
+    var header = document.getElementById("main_nav");
+
+    var sticky = header.offsetTop;
+
+    function myFunction() {
+      if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
+      }
+    }
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+
+</html>

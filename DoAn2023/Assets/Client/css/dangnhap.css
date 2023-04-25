@@ -1,0 +1,139 @@
+/* Header */
+.header__navbar--name {
+    color: var(--white-color);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 17px;
+    padding: 10px 0;
+}
+
+/* Main */
+.section {
+    height: 950px;
+    width: 100%;
+    background: linear-gradient(50deg,#E1F7EB, #EAF7FA, #EDFBF7);
+    position: relative;
+}
+.main {
+    width: 1050px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 1px 4px 22px -8px #0004;
+    display: flex;
+    overflow: hidden;
+}
+.main__fixed {
+    width: 41%;
+    height: 100%;
+    padding: 25px 25px;
+    opacity: 0.5;
+    background-image: url(../img/create_cv.png);
+}
+
+/* Main login */
+.main__login_res {
+    display: flex;
+    justify-content: center;
+}
+.main__login {
+    width: 59%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main__login--wrapper {
+    background-color: var(--white-color);
+    width: 500px;
+    margin: 50px 0;
+    border-radius: 10px;
+    font-size: 15px;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.main__login--title {
+    font-size: 22px;
+    background-color: aliceblue;
+    line-height: 25px;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+.login--close::after {
+    content: 'x';
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    padding: 10px 15px;
+    color: #999;
+    cursor: pointer;
+}
+
+.login--close:hover::after {
+    color: black;
+}
+
+.main__login--content {
+    padding: 20px 25px;
+}
+
+.login__form--input {
+    margin: 15px;
+}
+
+.login__form--input > input {
+    display: block;
+    padding: 8px 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    letter-spacing: .5px;
+    outline: none;
+}
+
+.login__form--input > input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.login__form--input > input:focus {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.note-link {
+    text-decoration: none;
+    background-color: var(--success-color);
+    padding: 10px;
+    opacity: 0.8;
+    color:var(--white-color);
+}
+.form__input--submit {
+    padding: 8px;
+    margin-top: 20px;
+    color: var(--white-color);
+    width: 100%;
+    background-color: var(--success-color);
+    border: none;
+    opacity: 0.8;
+    outline: none;
+    border-radius: 5px;
+}
+
+    .form__input--submit:hover, .note-link:hover {
+        opacity: 1;
+        color: var(--white-color);
+    }
+
+.main__login--note {
+    text-align: center;
+    margin-bottom: 20px;
+}
