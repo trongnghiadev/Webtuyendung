@@ -15,3 +15,4 @@ Các chức năng cơ bản của TopCV bao gồm:
 ![screencapture-localhost-62536-2023-04-25-11_28_51](https://user-images.githubusercontent.com/108291735/234176407-800ba815-84b6-4e46-b22a-47ecd366e472.png)
 ![screencapture-localhost-62536-Admin-Home-2023-04-25-11_29_32](https://user-images.githubusercontent.com/108291735/234176415-67c30dbb-2eef-48f2-9b3d-38039009c244.png)
 ![screencapture-localhost-62536-cong-ty-ncd-viet-nam-6-2023-04-25-11_30_24](https://user-images.githubusercontent.com/108291735/234176423-19ac3099-ace8-4225-bd25-8956f2858fa8.png)
+![repository-open-graph-template](https://user-images.githubusercontent.com/108291735/234177215-55b56ca0-58ba-404e-ac25-002038c692c5.png)
